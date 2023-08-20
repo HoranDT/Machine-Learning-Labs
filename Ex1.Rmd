@@ -1,0 +1,42 @@
+#Reads table from the document, header true, "?" missing var. 
+Auto = read.table("Auto.data", header = T, na.strings = "?", stringsAsFactors = T)
+#view table
+View(Auto)
+#view first few rows
+head(Auto)
+#omit missing var
+Auto = na.omit(Auto)
+#dimensions of the table
+dim(Auto)
+#check var names
+names(Auto)
+#plotting variables
+plot(Auto$cylinders, Auto$mpg)
+#make data available by name
+attach(Auto)
+plot(cylinders, mpg)
+#convert quantative into qualitive
+cylinders = as.factor(cylinders)
+
+plot(cylinders, mpg)
+plot(cylinders, mpg, col = "red")
+plot(cylinders, mpg, col = "red", varwidth = T)
+plot(cylinders, mpg, col = "red", varwidth = T, horizontal = T)
+plot(cylinders, mpg, col = "red", varwidth = T, xlab = "cylinders", ylab = "MPG")
+
+#plot histograms
+hist(mpg)
+hist(mpg, col = 2)
+hist(mpg, col = 2, breaks = 15)
+
+#create scatterplot matrix
+pairs(Auto)
+pairs(~mpg +displacement+horsepower+weight+acceleration, data = Auto)
+
+#plot(horsepower, mpg)
+#identify val
+#identify(horsepower, mpg, name)
+
+#numerical summary in particular data set
+summary(mpg)
+
